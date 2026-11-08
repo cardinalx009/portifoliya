@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bekzod — Frontend & Bot Developer</title>
+<meta name="description" content="Bekzod — 17 yoshli dasturchi. Frontend, Python va JavaScript. Stadium bron qilish Telegram boti muallifi." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__num" id="loaderNum">00</div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+    <div class="loader__label" data-i18n="loader.label">YUKLANMOQDA</div>
+  </div>
+</div>
+
+<!-- ============ FX LAYERS ============ -->
+<canvas id="fx" class="fx"></canvas>
+<div class="grain"></div>
+<div class="cursor" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ LANGUAGE SWITCHER ============ -->
+<div class="lang" id="lang" role="group" aria-label="Til / Language / Язык">
+  <button type="button" data-lang="uz">UZ</button>
+  <button type="button" data-lang="en">EN</button>
+  <button type="button" data-lang="ru">RU</button>
+</div>
+
+<!-- ============ SIDEBAR NAV ============ -->
+<aside class="rail">
+  <a href="#hero" class="rail__logo" data-magnet>B<span>/</span>K</a>
+  <nav class="rail__nav">
+    <a href="#about"   data-i18n-label="nav.about">01</a>
+    <a href="#skills"  data-i18n-label="nav.skills">02</a>
+    <a href="#work"    data-i18n-label="nav.work">03</a>
+    <a href="#road"    data-i18n-label="nav.road">04</a>
+    <a href="#contact" data-i18n-label="nav.contact">05</a>
+  </nav>
+  <div class="rail__social">
+    <a href="https://t.me/Cyberphantom001" target="_blank" rel="noopener" aria-label="Telegram">TG</a>
+    <a href="https://t.me/Nystadion_bot" target="_blank" rel="noopener" aria-label="Bron boti">BOT</a>
+  </div>
+</aside>
+
+<main class="stage">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="blobs" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+    </div>
+
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__tag" data-reveal>
+        <span class="dot"></span> <span data-i18n="hero.tag">17 yosh · 4 yillik tajriba · Oʻzbekiston</span>
+      </p>
+
+      <h1 class="hero__title">
+        <span class="line" data-reveal><span class="word" data-scramble>BEKZOD</span></span>
+        <span class="line line--sub" data-reveal>
+          <span class="outline" data-i18n="hero.role">DASTURCHI</span>
+        </span>
+      </h1>
+
+      <p class="hero__lead" data-reveal data-i18n="hero.lead">
+        Men <b>frontend</b>, <b>Python</b> va <b>JavaScript</b> bilan ishlayman.
+        Gʻoyalarni tez, chiroyli va ishlaydigan mahsulotga aylantiraman.
+      </p>
+
+      <div class="hero__actions" data-reveal>
+        <a href="#work" class="btn btn--primary" data-magnet>
+          <span data-i18n="hero.cta1">Loyihalarni koʻrish</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn--ghost" data-magnet data-i18n="hero.cta2">Bogʻlanish</a>
+      </div>
+    </div>
+
+    <div class="hero__status" data-reveal>
+      <div class="status__row">
+        <span class="pulse"></span>
+        <span data-i18n="hero.status">Hozir: yangi loyihalar uchun ochiq</span>
+      </div>
+      <div class="status__time" id="clock">--:--:--</div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>SCROLL</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>PYTHON ✦ JAVASCRIPT ✦ TYPESCRIPT ✦ REACT ✦ TELEGRAM BOT ✦ UI ANIMATSIYA ✦ FRONTEND ✦ </span>
+      <span>PYTHON ✦ JAVASCRIPT ✦ TYPESCRIPT ✦ REACT ✦ TELEGRAM BOT ✦ UI ANIMATSIYA ✦ FRONTEND ✦ </span>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <header class="section__head">
+      <span class="kicker" data-reveal data-i18n="about.kicker">01 — Haqimda</span>
+      <h2 class="section__title" data-reveal data-i18n="about.title">Kod — bu mening <em>super kuchim</em></h2>
+    </header>
+
+    <div class="about">
+      <div class="about__text" data-reveal>
+        <p data-i18n="about.p1">
+          Men <b>Bekzod</b>, 17 yoshdaman va 4 yildan beri dasturlash bilan shugʻullanaman.
+          Frontend, Python va JavaScript — mening asosiy qurollarim.
+        </p>
+        <p data-i18n="about.p2">
+          Mening eng katta loyiham — <b>stadion bron qilish Telegram boti</b>.
+          U bir yildan ortiq vaqtdan beri toʻxtovsiz ishlab kelmoqda va real
+          foydalanuvchilarga xizmat qilmoqda.
+        </p>
+        <p data-i18n="about.p3">
+          Men tez oʻrganaman, detallarga eʼtibor beraman va gʻoyani
+          <em>ishlaydigan mahsulotga</em> aylantirishni yaxshi koʻraman.
+        </p>
+      </div>
+
+      <div class="stats" data-reveal>
+        <div class="stat">
+          <div class="stat__num" data-count="17">0</div>
+          <div class="stat__label" data-i18n="stat.age">Yoshim</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="4" data-suffix="+">0</div>
+          <div class="stat__label" data-i18n="stat.exp">Yillik tajriba</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="1" data-suffix="+">0</div>
+          <div class="stat__label" data-i18n="stat.bot">Yil ishlab kelgan bot</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="3" data-suffix="+">0</div>
+          <div class="stat__label" data-i18n="stat.tech">Texnologiya</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <header class="section__head">
+      <span class="kicker" data-reveal data-i18n="skills.kicker">02 — Koʻnikmalar</span>
+      <h2 class="section__title" data-reveal data-i18n="skills.title">Nima bilan <em>ishlayman</em></h2>
+    </header>
+
+    <div class="skills">
+      <article class="skill" data-tilt data-reveal>
+        <div class="skill__top">
+          <span class="skill__idx">01</span>
+          <h3>Frontend</h3>
+        </div>
+        <p data-i18n="skill.frontend">HTML, CSS, JavaScript va zamonaviy animatsiyalar bilan interfeyslar.</p>
+        <div class="meter"><span data-fill="92"></span></div>
+        <span class="skill__pct">92%</span>
+      </article>
+
+      <article class="skill" data-tilt data-reveal>
+        <div class="skill__top">
+          <span class="skill__idx">02</span>
+          <h3>Python</h3>
+        </div>
+        <p data-i18n="skill.python">Telegram botlar, avtomatlashtirish va backend logikasi.</p>
+        <div class="meter"><span data-fill="88"></span></div>
+        <span class="skill__pct">88%</span>
+      </article>
+
+      <article class="skill" data-tilt data-reveal>
+        <div class="skill__top">
+          <span class="skill__idx">03</span>
+          <h3>JavaScript / TS</h3>
+        </div>
+        <p data-i18n="skill.js">Interaktiv logika, API integratsiya va React ekosistemasi.</p>
+        <div class="meter"><span data-fill="85"></span></div>
+        <span class="skill__pct">85%</span>
+      </article>
+    </div>
+
+    <div class="chips" data-reveal>
+      <span>Telegram Bot API</span><span>REST API</span><span>Git</span>
+      <span>React</span><span>Node.js</span><span>SQLite</span>
+      <span data-i18n="chip.ui">UI Animatsiya</span><span data-i18n="chip.responsive">Responsive dizayn</span>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section class="section" id="work">
+    <header class="section__head">
+      <span class="kicker" data-reveal data-i18n="work.kicker">03 — Loyihalar</span>
+      <h2 class="section__title" data-reveal data-i18n="work.title">Men yaratgan <em>narsalar</em></h2>
+    </header>
+
+    <article class="project project--feature" data-reveal>
+      <div class="project__visual">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <i></i><i></i><i></i>
+            <span>stadium_booking_bot.py</span>
+          </div>
+          <pre class="terminal__body"><code id="typeCode"></code><span class="caret"></span></pre>
+        </div>
+        <div class="live-badge"><span class="pulse"></span> <span data-i18n="proj.live">1+ yildan beri ishlayapti</span></div>
+      </div>
+
+      <div class="project__info">
+        <span class="project__tag" data-i18n="proj.tag">Asosiy loyiha · Python · Telegram</span>
+        <h3 data-i18n="proj.title">Stadion bron qilish Telegram boti</h3>
+        <p data-i18n="proj.desc">
+          Foydalanuvchilar stadionni tanlaydi, vaqtni band qiladi va bronni
+          bir necha tugma bilan tasdiqlaydi. Bir yildan ortiq vaqt davomida
+          real foydalanuvchilar bilan uzluksiz ishlab kelmoqda.
+        </p>
+        <ul class="project__facts">
+          <li data-i18n="proj.platform"><b>Platforma:</b> Telegram</li>
+          <li data-i18n="proj.lang"><b>Til:</b> Python</li>
+          <li><b>Bot:</b> @Nystadion_bot</li>
+          <li data-i18n="proj.status"><b>Holat:</b> Faol (production)</li>
+        </ul>
+        <div class="project__links">
+          <a href="https://t.me/Nystadion_bot" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-magnet>@Nystadion_bot</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="project-grid">
+      <article class="project-card" data-tilt data-reveal>
+        <span class="project-card__no">/01</span>
+        <h3 data-i18n="card1.title">Portfolio sayti</h3>
+        <p data-i18n="card1.desc">Animatsiyalarga boy, custom cursor va canvas effektli shaxsiy sayt.</p>
+        <div class="project-card__meta"><span>HTML</span><span>CSS</span><span>JS</span></div>
+      </article>
+
+      <article class="project-card" data-tilt data-reveal>
+        <span class="project-card__no">/02</span>
+        <h3 data-i18n="card2.title">Bron tizimi logikasi</h3>
+        <p data-i18n="card2.desc">Band vaqtlarni tekshirish, dublikat bronlarni oldini olish algoritmi.</p>
+        <div class="project-card__meta"><span>Python</span><span>SQLite</span></div>
+      </article>
+
+      <article class="project-card" data-tilt data-reveal>
+        <span class="project-card__no">/03</span>
+        <h3 data-i18n="card3.title">Interaktiv UI komponentlar</h3>
+        <p data-i18n="card3.desc">Mikro-animatsiyalar, scroll-reveal va 3D tilt kartalar toʻplami.</p>
+        <div class="project-card__meta"><span>JS</span><span>CSS</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ ROAD / TIMELINE ============ -->
+  <section class="section" id="road">
+    <header class="section__head">
+      <span class="kicker" data-reveal data-i18n="road.kicker">04 — Yoʻlim</span>
+      <h2 class="section__title" data-reveal data-i18n="road.title">4 yillik <em>sayohat</em></h2>
+    </header>
+
+    <ol class="timeline">
+      <li data-reveal>
+        <span class="timeline__year" data-i18n="tl1.year">13 yosh</span>
+        <h3 data-i18n="tl1.title">Birinchi qadam</h3>
+        <p data-i18n="tl1.desc">Frontend asoslari: HTML va CSS bilan tanishdim, birinchi sahifalarimni yasadim.</p>
+      </li>
+      <li data-reveal>
+        <span class="timeline__year" data-i18n="tl2.year">14–15 yosh</span>
+        <h3 data-i18n="tl2.title">JavaScript va Python</h3>
+        <p data-i18n="tl2.desc">Interaktivlik va backend logikasi. Birinchi avtomatlashtirish skriptlarim.</p>
+      </li>
+      <li data-reveal>
+        <span class="timeline__year" data-i18n="tl3.year">16 yosh</span>
+        <h3 data-i18n="tl3.title">Telegram botlar</h3>
+        <p data-i18n="tl3.desc">Python yordamida botlar yozishni boshladim. Stadium bron botining gʻoyasi paydo boʻldi.</p>
+      </li>
+      <li data-reveal>
+        <span class="timeline__year" data-i18n="tl4.year">17 yosh</span>
+        <h3 data-i18n="tl4.title">Real mahsulot</h3>
+        <p data-i18n="tl4.desc">Stadium bron boti 1 yildan ortiq vaqt davomida faol ishlayapti. Yangi loyihalar sari.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section--contact" id="contact">
+    <div class="contact__glow" aria-hidden="true"></div>
+    <span class="kicker" data-reveal data-i18n="contact.kicker">05 — Aloqa</span>
+    <h2 class="contact__title" data-reveal data-i18n="contact.title">
+      Birgalikda <em>nimadir</em><br /> yarataylikmi?
+    </h2>
+    <p class="contact__sub" data-reveal data-i18n="contact.sub">
+      Loyihangiz bormi yoki shunchaki salomlashmoqchimisiz? Yozing — javob beraman.
+    </p>
+    <div class="contact__actions" data-reveal>
+      <a href="https://t.me/Cyberphantom001" target="_blank" rel="noopener" class="btn btn--primary btn--lg" data-magnet>
+        <span>@Cyberphantom001</span>
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="mailto:yendexgames@gmail.com" class="btn btn--ghost btn--lg" data-magnet>yendexgames@gmail.com</a>
+      <a href="https://t.me/Nystadion_bot" target="_blank" rel="noopener" class="btn btn--ghost btn--lg" data-magnet data-i18n="contact.bot">Bron bot: @Nystadion_bot</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__left">© <span id="year"></span> Bekzod</div>
+    <div class="footer__mid" data-i18n="footer.mid">Uzbekiston · HTML CSS JS Python</div>
+    <div class="footer__right" data-i18n="footer.right">Handcrafted with <span class="heart">♥</span></div>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
